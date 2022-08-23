@@ -176,7 +176,6 @@ class Tests extends Component {
                 }
             ],
             lastProblam: 0,
-            testInProgress: true,
             num: 1,
             clickY: () => {
                 this.setState({
@@ -196,18 +195,19 @@ class Tests extends Component {
     render() {
         return (
             <>
-                { this.state.problamList[this.state.lastProblam].yes === -1 && this.setState({testInProgress:false})}
-                { this.state.testInProgress && <>
-                    <h1>{this.state.num}. {this.state.problamList[this.state.lastProblam].problam}</h1>
-                    <button onClick={this.state.clickY}>동의</button> <button onClick={this.state.clickN}>비동의</button>
-                </> }
-                { !this.state.testInProgress && <>
-                    <h1>검사 완료</h1>
-                    { this.state.lastProblam === 24 && <Link to="/tayang">결과 보러가기</Link> }
-                    { this.state.lastProblam === 25 && <Link to="/taeeum">결과 보러가기</Link> }
-                    { this.state.lastProblam === 26 && <Link to="/soyang">결과 보러가기</Link> }
-                    { this.state.lastProblam === 27 && <Link to="/soeeum">결과 보러가기</Link> }
-                </> }
+                { this.state.lastProblam>=24&&this.state.lastProblam
+                    ? <>
+                        <h1>검사 완료</h1>
+                        { this.state.lastProblam === 24 && <Link to="/tayang">결과 보러가기</Link> }
+                        { this.state.lastProblam === 25 && <Link to="/taeeum">결과 보러가기</Link> }
+                        { this.state.lastProblam === 26 && <Link to="/soyang">결과 보러가기</Link> }
+                        { this.state.lastProblam === 27 && <Link to="/soeeum">결과 보러가기</Link> }
+                    </>
+                    : <>
+                        <h1>{this.state.num}. {this.state.problamList[this.state.lastProblam].problam}</h1>
+                        <button onClick={this.state.clickY}>동의</button> <button onClick={this.state.clickN}>비동의</button>
+                    </>
+                }
             </>
         );
     }

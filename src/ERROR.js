@@ -1,10 +1,11 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 function ERR() {
     return (
         <>
             <h1>ERROR</h1>
-            <h2>사용자가 잘못된 위치로 접속을 시도하였습니다</h2>
+            <Link to='/'>돌아가기</Link>
         </>
     );
 }
