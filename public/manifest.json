@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "내 체질에 맞는 음식",
+  "name": "내 체질에 맞는 음식",
   "icons": [
     {
       "src": "favicon.ico",
